@@ -1,0 +1,58 @@
+<div class="board-size">
+    <svg version="1.1"
+         id="svg-board"
+         width="100%"
+         height="100%"
+         viewbox="500 500 2000 2000"
+         xmlns="http://www.w3.org/2000/svg" 
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+        
+        <g *ngFor="let entity of entities">
+            <svg:image *ngIf="entity.type === 'image'"
+                [attr.xlink:href]="entity.url"
+                [attr.height]="entity.height"
+                [attr.width]="entity.width"
+                class="draggable"
+                transform="matrix(1,0,0,1,0,0)"
+                [svgMove] />
+            
+            <g *ngIf="entity.type === 'note'"
+                class="draggable"
+                [svgMove]>
+                <rect [attr.height]="entity.height"
+                    [attr.width]="entity.width"
+                    class="note-shape"
+                    transform="matrix(1,0,0,1,0,0)">
+                </rect>
+
+                <text font-size="entity.size"
+                    font-family="Verdana"
+                    [attr.x]="entity.xPos + 15"
+                    [attr.y]="entity.yPos + 20"
+                    [attr.width]="entity.width - 15"
+                    [attr.height]="entity.height - 20">
+                    <tspan>
+                        {{entity.text}}
+                    </tspan>
+                </text>
+            </g>
+        </g>
+
+        <rect width="172"
+            height="56"
+            class="rect-shape fill-transparent" />
+
+        <text x="20"
+            y="40"
+            font-size="36"
+            font-family="Verdana"
+            class="text-shape zero-opacity">
+            Project
+        </text>
+    </svg>
+</div>
+
+<h5>Debugging:</h5>
+<div *ngFor='let entity of entities'>
+    <pre>{{entity | json}}</pre>
+</div>

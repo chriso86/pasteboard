@@ -1,27 +1,60 @@
-# Laravel PHP Framework
+# Angular 2.0.0-rc.5-laravel5
+Setting up Paste Board
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+<h2>Installation</h2>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+<strong>Step1</strong>
+You need pre installed composer, nodejs and typescript (Preferably globally).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+<strong>Step2</strong>
 
-## Official Documentation
+Clone the repository.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+<strong>Step3</strong>
+Open your terminal then navigate to the project directory, and run the commands below:
 
-## Contributing
+- composer update
+- npm install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+This will install all required npm packages and their dependencies as well as download and install all laravel packages and their dependencies.
 
-## Security Vulnerabilities
+<strong>Step 4</strong>
+Next run the following commands to copy libraries to the public folder, minify files, as well as configure your TypeScript environment
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+- gulp bower --force-latest
+- gulp
 
-## License
+<strong>Step 5</strong>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+<hr/>
+
+<h2>Running the project from the local server</h2>
+
+<strong>Step 1</strong>
+Open your terminal then navigate to the project directory, and run the command below:
+
+php artisan serve --port=8080
+
+You may change the port to which ever port you desire.
+
+<strong>Step 2</strong>
+Open a new terminal, navigate to the project directory, and run the command below:
+gulp watch
+
+This will keep an eye on your TypeScript files and compile them to .js files on file change.
+
+<strong>step 3</strong>
+Navigate to the link below in your web browser:
+
+http://localhost:8080/
+
+<hr />
+
+<h2>Notes</h2>
+
+- The Angular 2 code for the project may be found in the resources/assets/typescript folder
+- The Angular 2 portion of the application implements the Atomic design principles
+- Google Material 2 alpha 7 has been included in this project however bootstrap is still included due to Google Material 2 being limited at present
+- Artisan is used to maintain back-end code
+
+<strong>Please note that this build may currently be failing as I have yet to implement Travis for build testing</strong>

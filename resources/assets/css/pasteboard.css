@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+/* Container rules */
+body {
+    background: #000;
+    padding: 0 25px;
+}
+
+.main-container {
+    background: #fff;
+    width: 100%;
+    padding: 0 25px;
+}
+
+/* Menu & Logo styles */
+.menu {
+    position: relative;
+}
+
+.menu hr {
+    margin-top: 0px;
+}
+
+.menu-navigation {
+    width: 100%;
+    text-align: right;
+    margin-top: 27px;
+}
+
+.logo {
+    font-family: 'Nova Square', cursive;
+    font-size: 4em;
+}
+
+.logo::first-letter {
+    color: #f00 !important;
+}
+
+/* Board styles */
+.board-size {
+    width: 100%;
+    height: calc(100vh - 300px);
+}
+
+svg {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+svg image, svg text {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.draggable {
+    cursor: move;
+}
+
+.rect-shape {
+  fill: #ccc;
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  stroke: #aaa;
+  stroke-opacity: 0.5;
+}
+
+.note-shape {
+    fill: #fff;
+    stroke-width: 1px;
+    stroke: #aaa;
+    stroke-opacity: 0.5;
+    fill-opacity: 0.5;
+}
+
+.fill-transparent {
+    fill: transparent;
+}
+
+.text-shape {
+    color: #333;
+}
+
+.note-text {
+    padding: 20px;
+}
+
+.zero-opacity {
+    opacity: 0;
+}
+
+@keyframes draw-rect {
+  0% {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    fill: transparent;
+    fill-opacity: 0.5;
+  }
+  100% {
+    stroke-dasharray: 760;
+    stroke-dashoffset: 0;
+    stroke-width: 2px;
+    fill: #ccc;
+    fill-opacity: 0.5;
+  }
+}
+
+@keyframes draw-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+svg:hover .rect-shape {
+  -webkit-animation: 0.3s draw-rect linear forwards;
+  animation: 0.3s draw-rect linear forwards;
+}
+
+svg:hover .text-shape {
+  -webkit-animation: 0.3s draw-text linear forwards;
+  animation: 0.3s draw-text linear forwards;
+}
