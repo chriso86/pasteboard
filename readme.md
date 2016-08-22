@@ -23,7 +23,7 @@ Clone the repository.
 <strong>Step3</strong><br/>
 Open your terminal then navigate to the project directory, and run the commands below:
 
-- composer update
+- composer install
 - npm install
 
 This will install all required npm packages and their dependencies as well as download and install all laravel packages and their dependencies.
